@@ -16,6 +16,7 @@ namespace Garage2
             this.RegNo = regNo;
             this.Color = color;
             this.NoOfWheels = noOfWheels;
+            
             Stats();
         }
         public virtual string Stats()
@@ -24,12 +25,8 @@ namespace Garage2
             return $"RegNo: {RegNo}, Color: {Color}, NoWheels: {NoOfWheels}";
         }
 
-        public string GetVehicles(string regno)
-        {
-            //enbart test
-            return $"RegNo: {RegNo}, Color: {Color}, NoWheels: {NoOfWheels}";
-        }
-        public static string CheckRegNo(string regno)
+        
+        public static string CheckRegNoFormat(string regno)
         {
             if (regno.Length == 6)
             {
@@ -59,6 +56,8 @@ namespace Garage2
         {
             this.NoEngin = noEngin;
             this.Model = model;
+            this.VehicleType = GetType().Name;
+           
 
             Stats();
         }
@@ -86,10 +85,10 @@ namespace Garage2
             }
             set
             {
-                //at least two caracters required
+                //at least three caracters required
                 if (value.Length < 3)
                 {
-                    throw new ArgumentException("The model must contain at least two caracters");
+                    throw new ArgumentException("The model must contain at least twhtree caracters");
                 }
                 this.model = value;
 
@@ -178,11 +177,11 @@ namespace Garage2
         private int hrsPwr;
         public Car(string regNo, string color, int noOfWheels, int hrsPwr) : base(regNo, color, noOfWheels)
         {
-
+            this.HrsPwr = hrsPwr;
         }
         public override string ToString()
         {
-            return $"The regNo: {RegNo}, Color: {Color}, No of Wheels: {NoOfWheels}, HorsePower: {hrsPwr}";
+            return $"The regNo: {RegNo}, Color: {Color}, No of Wheels: {NoOfWheels}, HorsePower: {HrsPwr}";
         }
 
         public int HrsPwr
@@ -203,7 +202,7 @@ namespace Garage2
         public override string Stats()
         {
             //
-            return $"\n{base.Stats()} number of seats: {hrsPwr}";
+            return $"\n{base.Stats()}, HorsePower: {HrsPwr}";
         }
     }
     class Motorcycle : Vehicle
@@ -211,10 +210,11 @@ namespace Garage2
         private int hrsPwr;
         public Motorcycle(string regNo, string color, int noOfWheels, int hrsPwr) : base(regNo, color, noOfWheels)
         {
+            this.HrsPwr = hrsPwr;
         }
         public override string ToString()
         {
-            return $"The regNo: {RegNo}, Color: {Color}, No of Wheels: {NoOfWheels}, HorsePower: {hrsPwr}";
+            return $"The regNo: {RegNo}, Color: {Color}, No of Wheels: {NoOfWheels}, HorsePower: {HrsPwr}";
         }
         public int HrsPwr
         {
@@ -234,7 +234,7 @@ namespace Garage2
         public override string Stats()
         {
             //
-            return $"\n{base.Stats()} number of seats: {hrsPwr}";
+            return $"\n{base.Stats()}, HorsePower: {HrsPwr}";
         }
 
     }

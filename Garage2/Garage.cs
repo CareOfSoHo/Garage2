@@ -21,9 +21,9 @@ namespace Garage2
 
         public Garage()
         {
-            buff = 10;
+            buff = 1;
             noUsedSpaces = 0; // garaget är tomt
-            noOfSpaces = 30; // tillgängliga platser 3st, ToDo: dynamisk
+            noOfSpaces = 0; // tillgängliga platser 3st, ToDo: dynamisk
             vehicleArray = new T[noOfSpaces];
 
 
@@ -154,13 +154,14 @@ namespace Garage2
         public IEnumerator<T> GetEnumerator()
         {
             //iterera arrayen och returnera vehicle
-            for (int i = 0; i < vehicleArray.Length; i++)
+            for (int i = 0; i < vehicleArray.Length-1; i++)
             {
                 Console.WriteLine(vehicleArray[i].RegNo);
                 Console.WriteLine(vehicleArray[i].Color);
                 Console.WriteLine(vehicleArray[i].NoOfWheels);
                 Console.WriteLine(vehicleArray[i].Stats());
                 Console.WriteLine(vehicleArray[i].GetType().Name);
+                i++;
             }
             //ToDo
             return GetEnumerator();

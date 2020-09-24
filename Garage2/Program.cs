@@ -8,18 +8,11 @@ namespace Garage2
     {
         static void Main(string[] args)
         {
+           
             GarageManager manager = new GarageManager();
             manager.Run();
-            //manager.Menu();
-
-            Vehicle vehicles; // = GetVehicles.FirstOrDefault(vehicle => vehicle.RegNo == "FZK678");
-
+           
         }
 
-       //public IEnumerable<Vehicle> GetVehicles
-       // {
-       //     //get { return $"RegNo: {RegNo}, Color: {Color}, NoWheels: {NoOfWheels}"; }
-       //    throw new NotImplementedException();
-       // }
     }
 }
